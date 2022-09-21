@@ -45,7 +45,9 @@ static int spread_spectrum_set_state(int state) {
 
     regmap_read(anatop,  PLL_528_SS_OFFSET, &val );
     regmap_write(anatop,  PLL_528_SS_OFFSET, val  | ANADIG_PLL_528_SYS_SS_ENABLE);
-    printk("i.MX6 PixiePro Spread Spectrum module loaded\n");
+    printk("i.MX6 Spread Spectrum module loaded. SS=%d, Denom=%d\n", sys_ss, denom);
+  } else {
+    printk("i.MX6 Spread Spectrum module unloaded\n");
   }
 
   return 0;
